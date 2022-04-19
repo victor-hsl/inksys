@@ -7,7 +7,7 @@ export const Footer = styled.footer`
     justify-content: center;
     color: #c2c2c2;
     align-items: center;
-
+    
     a{
         margin-right: 5px;
         color: white;

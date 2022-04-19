@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Area = styled.div`
     margin: auto;
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
 `;
@@ -13,7 +13,7 @@ export const Steps = styled.div`
 `;
 
 export const Sidebar = styled.div`
-    width: 250px;
+    width: 200px;
     border-right: 1px solid #c5cdd5;
 `;
 

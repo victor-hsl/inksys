@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 `;
 
@@ -13,7 +14,7 @@ export const Option = styled.div<{selected: boolean; disabled: boolean;standard:
     cursor: pointer;
     padding: 40px 50px;
     max-width: 500px;
-    height: 500px;
+    max-height: 500px;
     opacity: ${props => props.disabled ? '0.2' : '1'};
     text-align: center;
 

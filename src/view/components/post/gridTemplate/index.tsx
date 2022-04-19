@@ -32,23 +32,24 @@ const GridTemplate = () => {
             </div>
         }
         {!loading && photos.length > 0 &&
-          <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="row row-cols-1 row-cols-md-3 g-4 mb-4">
             {currentItens.map((item, index) => (
                     <Card url={item.url} name={item.name}/>
             ))}
           </div>
         }
-        
-        <div className="d-flex justify-content-center">
-            <ul className="pagination">
-              <li className="page-item">
-                <button onClick={(e) => setCurrentPage(currentPage-1)} className={`btn btn-light ${currentPage === 0 ? 'disabled' : ''}`} ><i className="bi bi-caret-left-fill"></i></button>
-              </li>
-              <li className="page-item">
-                <button onClick={(e) => setCurrentPage(currentPage+1)} className={`btn btn-light ${currentPage === pages-1 ? 'disabled' : ''}`}><i className="bi bi-caret-right-fill"></i></button>
-              </li>
-            </ul>
-        </div>
+        {!loading &&
+          <div className="d-flex justify-content-center">
+              <ul className="pagination">
+                <li className="page-item">
+                  <button onClick={(e) => setCurrentPage(currentPage-1)} className={`btn btn-light ${currentPage === 0 ? 'disabled' : ''}`} ><i className="bi bi-caret-left-fill"></i></button>
+                </li>
+                <li className="page-item">
+                  <button onClick={(e) => setCurrentPage(currentPage+1)} className={`btn btn-light ${currentPage === pages-1 ? 'disabled' : ''}`}><i className="bi bi-caret-right-fill"></i></button>
+                </li>
+              </ul>
+          </div>
+        }
         </C.Container>
     );
 }

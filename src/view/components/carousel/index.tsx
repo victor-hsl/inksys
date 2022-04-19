@@ -22,7 +22,7 @@ const Caroussel = () => {
   return(
     <div>
       { loading &&
-        <Carousel className="carrossel">
+        <Carousel>
           <Carousel.Item>
             <img className="item" src={PlaceHolder1}/>
           </Carousel.Item>

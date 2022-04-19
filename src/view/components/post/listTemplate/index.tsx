@@ -52,6 +52,7 @@ const ListTemplate = () => {
             ))}
           </div>
         }
+        {!loading &&
           <div className="d-flex justify-content-center">
             <ul className="pagination">
               <li className="page-item">
@@ -62,6 +63,7 @@ const ListTemplate = () => {
               </li>
             </ul>
           </div>
+        }  
         </div>
     );
 }

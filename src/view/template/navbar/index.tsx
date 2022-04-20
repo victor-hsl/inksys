@@ -1,18 +1,26 @@
 import './styles.css'
 import {Link} from 'react-router-dom';
-
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 export const Menu = () => {
     return(
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark rounded menu-area">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="navbar nav collapse navbar-collapse justify-content-around menu" id="navbarsExample08">
-                        <h2><Link to='/Info'>Informações</Link></h2>
-                        <h2><Link to='/Portfolio'>Portfolio</Link></h2>
-                        <h2><Link to='/Orcamento'>Orçamento</Link></h2>
-            </div>
-        </nav>
+        <Navbar className="mb-2 mt-2 rounded menuarea" collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="m-auto">
+                            <h3><Link className="none" to='/app/info'>Informações</Link></h3>
+                    </Nav>
+                    <Nav className="m-auto">
+                            <h3><Link className="none" to='/app/portfolio'>Portfolio</Link></h3>
+                    </Nav>
+                    <Nav className="m-auto">
+                        <h3><Link className="none" to='/app/orcamento'>Orçamento</Link></h3>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );    
 }

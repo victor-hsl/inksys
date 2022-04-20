@@ -5,18 +5,19 @@ import Info from '../view/info'
 import FormStep1 from '../view/orcamento/steps/FormStep1'
 import FormStep2 from '../view/orcamento/steps/FormStep2'
 import FormStep3 from '../view/orcamento/steps/FormStep3'
-
-//import Admin from './pages/admin';
+import Admin from '../view/admin'
+import App from '../App'
 export default function mainRoutes(){
     return(
         <Routes>
-            <Route path='/Portfolio' element={<Portfolio/>}/>
-            <Route path='/' element={<Portfolio/>}/>
-            <Route path='/Orcamento' element={<Orcamento/>}/>
-            <Route path='/step1' element={<FormStep1/>}/>
-            <Route path='/step2' element={<FormStep2/>}/>
-            <Route path='/step3' element={<FormStep3/>}/>
-            <Route path='/Info' element={<Info/>}/>
+            <Route path='/admin' element={<Admin children/>}/>
+            <Route path='/' element={<App children={<Portfolio/>}/>}/>
+            <Route path='/app/portfolio' element={<App children={<Portfolio/>}/>}/>
+            <Route path='/app/orcamento' element={<App children={<Orcamento/>}/>}/>
+            <Route path='/app/orcamento/step1'element={<App children={<FormStep1/>}/>}/>
+            <Route path='/app/orcamento/step2' element={<App children={<FormStep2/>}/>}/>
+            <Route path='/app/orcamento/step3' element={<App children={<FormStep3/>}/>}/>
+            <Route path='/app/info' element={<App children={<Info/>}/>}/>
         </Routes>
     )
 }

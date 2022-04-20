@@ -8,25 +8,21 @@ import {Header} from './view/template/header'
 import {Menu} from './view/template/navbar'
 import {Footer} from './view/template/footer'
 import {FormProvider} from './controller/FormContext'
-import Rotas from './controller/Router'
-import {
-  BrowserRouter as Router,
-  Link,
-  useNavigate
-} from "react-router-dom"
+import { ReactNode } from 'react'
+type Props = {
+  children: ReactNode;
+}
 
-const App = () => {  
+const App = ({children} : Props) => {  
 
   return(
     <div className="app container">
-      <Router>
         <Header/>
         <Menu/>
         <FormProvider>
-          <Rotas/>
+          {children}
         </FormProvider>
         <Footer/>
-      </Router>
     </div>
   );
 }

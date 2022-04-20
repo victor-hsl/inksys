@@ -47,7 +47,7 @@ const Orcamento = () => {
               loginPassword
             )
             if(loginEmail === 'victor@tattoo.com'){
-                navigate('/admin');
+                navigate('/Admin');
             }
           } catch (error) {
             console.log('err');

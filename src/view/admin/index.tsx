@@ -12,8 +12,7 @@ const Admin = ({children}: Props) => {
     return(
       <Fragment>
         <AdminNav/>
-        <Tabs/>
-        <AdminContent children/>
+        {children}
       </Fragment>
     );
 };

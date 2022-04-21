@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
-import NavDropdown from 'react-bootstrap/NavDropdown'
 export const Menu = () => {
     return(
         <Navbar className="mb-2 mt-2 rounded menuarea" collapseOnSelect expand="lg" bg="dark" variant="dark">

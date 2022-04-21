@@ -6,11 +6,13 @@ import FormStep1 from '../view/orcamento/steps/FormStep1'
 import FormStep2 from '../view/orcamento/steps/FormStep2'
 import FormStep3 from '../view/orcamento/steps/FormStep3'
 import Admin from '../view/admin'
+import IncludeInfo from '../view/admin/info/includeInfo'
 import App from '../App'
 export default function mainRoutes(){
     return(
         <Routes>
             <Route path='/admin' element={<Admin children/>}/>
+            <Route path='/admin/info/includeinfo' element={<Admin children={<IncludeInfo/>}/>}/>
             <Route path='/' element={<App children={<Portfolio/>}/>}/>
             <Route path='/app/portfolio' element={<App children={<Portfolio/>}/>}/>
             <Route path='/app/orcamento' element={<App children={<Orcamento/>}/>}/>

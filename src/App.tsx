@@ -16,7 +16,7 @@ type Props = {
 const App = ({children} : Props) => {  
 
   return(
-    <div className="app container">
+    <div className="App container">
         <Header/>
         <Menu/>
         <FormProvider>

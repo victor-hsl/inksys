@@ -1,10 +1,14 @@
+import * as C from './styles'
+import { ReactNode } from 'react'
+type Props = {
+    children: ReactNode;
+}
 
-const AdminContent = () => {
+const AdminContent = ({children} : Props) => {
     return(
-        <div>
-            ...
-        </div>
-    );
-};
-
+        <C.Main className="container">
+            {children}
+        </C.Main>
+    )
+}
 export default AdminContent;

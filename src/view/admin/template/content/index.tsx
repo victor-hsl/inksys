@@ -1,18 +1,14 @@
 import * as C from './styles'
-import { ReactNode, Fragment } from 'react'
-import Tabs from '../tabs'
+import { ReactNode } from 'react'
 type Props = {
     children: ReactNode;
 }
 
 const AdminContent = ({children} : Props) => {
     return(
-        <Fragment>
-            <Tabs/>
-            <C.Main className="container">
-                {children}
-            </C.Main>
-        </Fragment>
+        <C.Main className="container">
+            {children}
+        </C.Main>
     )
 }
 export default AdminContent;

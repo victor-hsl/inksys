@@ -10,13 +10,13 @@ export const Menu = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="m-auto">
-                            <h3><Link className="none" to='/app/info'>INFORMAÇÕES</Link></h3>
+                            <h3><Link className="none" to='/app/info'>Informações</Link></h3>
                     </Nav>
                     <Nav className="m-auto">
-                            <h3><Link className="none" to='/app/portfolio'>PORTFOLIO</Link></h3>
+                            <h3><Link className="none" to='/app/portfolio'>Portfolio</Link></h3>
                     </Nav>
                     <Nav className="m-auto">
-                        <h3><Link className="none" to='/app/orcamento'>ORÇAMENTO</Link></h3>
+                        <h3><Link className="none" to='/app/orcamento'>Orçamento</Link></h3>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

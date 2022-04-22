@@ -1,25 +1,31 @@
 import Content from '../template/content'
 import Tabs from '../template/tabs'
 import {Fragment} from 'react'
+const newPost = () => {
 
-const includeInfo = () => {
     return(
         <Fragment>
-            <Tabs title1="Incluir" link1="/admin/info/includeinfo" title2="Listar" link2="/admin/info/listinfo" active={0}/>
+            <Tabs title1="Novo" link1="/admin/portfolio/newpost" title2="Listar" link2="/admin/portfolio/listposts" active={0}/>
             <Content>
                 <div className="">
-                    <h1 className="display-4 mb-3">Incluir Info</h1>
+                    <h1 className="display-4 mb-3">Adicionar Post</h1>
                     <form>
                         <div className="form-group row mb-3">
-                            <label aria-for="titulo" className="col-sm-2 col-lg-1 col-form-label">Titulo</label>
+                            <label aria-for="title" className="col-sm-2 col-lg-1 col-form-label">Titulo</label>
                             <div className="col-sm-10 col-lg-3">
-                            <input type="text" className="form-control" id="titulo" placeholder="Nome da informação"/>
+                            <input type="text" className="form-control" id="title" placeholder="Nome do post"/>
                             </div>
                         </div>
                         <div className="form-group row mb-3">
-                            <label aria-for="descricao" className="col-sm-2 col-lg-1 col-form-label">Descrição</label>
+                            <label aria-for="description" className="col-sm-2 col-lg-1 col-form-label">Descrição</label>
                             <div className="col-sm-10 col-lg-6">
-                            <textarea className="form-control" id="descricao" rows={5} placeholder="Insira o texto aqui..."></textarea>
+                            <textarea className="form-control" id="description" rows={3} placeholder="Insira o texto aqui..."></textarea>
+                            </div>
+                        </div>
+                        <div className="form-group row mb-3">
+                            <label aria-for="duration" className="col-sm-2 col-lg-1 col-form-label">Duração</label>
+                            <div className="col-sm-10 col-lg-2">
+                            <input type="time" className="form-control" id="duration"/>
                             </div>
                         </div>
                         <div className="form-group row">
@@ -32,7 +38,7 @@ const includeInfo = () => {
                 </div>        
             </Content>
         </Fragment>
-    );        
+    );
 };
 
-export default includeInfo;
+export default newPost;

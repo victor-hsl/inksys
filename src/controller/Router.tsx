@@ -11,6 +11,7 @@ import Admin from '../view/admin'
 import IncludeInfo from '../view/admin/info/includeInfo'
 import ListInfo from '../view/admin/info/listInfo'
 import NewPost from '../view/admin/portfolio/newpost'
+import ListPosts from '../view/admin/portfolio/listPosts'
 import Edit from '../view/admin/orcamento/edit'
 import NewItem from '../view/admin/banner/newitem'
 
@@ -21,6 +22,7 @@ export default function mainRoutes(){
             <Route path='/admin/info/includeinfo' element={<Admin children={<IncludeInfo/>}/>}/>
             <Route path='/admin/info/listinfo' element={<Admin children={<ListInfo/>}/>}/>
             <Route path='/admin/portfolio/newpost' element={<Admin children={<NewPost/>}/>}/>
+            <Route path='/admin/portfolio/listposts' element={<Admin children={<ListPosts/>}/>}/>
             <Route path='/admin/orcamento/edit' element={<Admin children={<Edit/>}/>}/>
             <Route path='/admin/banner/newitem' element={<Admin children={<NewItem/>}/>}/>
             

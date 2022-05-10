@@ -26,10 +26,14 @@ const GridTemplate = () => {
     return(
         <C.Container>
         {loading &&
-            <div className="loading">
-            <p className="display-6">Aguarde...</p>
-            <img src={Loading} alt="Aguarde..." width="50px"/>
-            </div>
+          <div className="d-flex justify-content-center">
+            <C.Loader>
+              <C.Ball></C.Ball>
+              <C.Ball></C.Ball>
+              <C.Ball></C.Ball>
+              <span>Aguarde</span>
+            </C.Loader>
+          </div>
         }
         {!loading && photos.length > 0 &&
           <div className="row row-cols-1 row-cols-md-3 g-4 mb-4">

@@ -1,7 +1,8 @@
 import {initializeApp} from 'firebase/app';
 import {getStorage} from 'firebase/storage';
+import {getFirestore, collection, CollectionReference, DocumentData} from 'firebase/firestore';
 import {getAuth} from 'firebase/auth';
-
+import {Info} from '../model/Info'
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
@@ -16,4 +17,12 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 export const storage = getStorage(firebaseApp);
 
+export const db = getFirestore(firebaseApp);
+
 export const auth = getAuth(firebaseApp);
+
+const createCollection = <T = DocumentData> (collectionName: string) => {
+  return collection(db, collectionName) as CollectionReference<T>
+}
+
+export const infoCollection = createCollection<Info>('info');

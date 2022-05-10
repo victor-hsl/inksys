@@ -3,7 +3,44 @@ import {Featurette} from './featurette'
 import '../../../portfolio/hr.css'
 import {Photo} from '../../../../model/Photo'
 import * as Photos from '../../../../dao/Photo'
-import Loading from '../../../../assets/loading.gif'
+import styled from 'styled-components'
+const Loader = styled.div`
+  width: 110px;
+  height: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  span{
+    font-size: 32px;
+    margin: auto;
+    color: #343a40;
+  }
+`
+const Ball = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #343a40;
+  animation: bounce .5s alternate infinite;
+
+  :nth-child(2){
+    animation-delay: .16s;
+  }
+  :nth-child(3){
+    animation-delay: .32s;
+  }
+
+ @keyframes bounce {
+   from{
+     transform: scaleX(1.25);
+   }
+   to {
+     transform: translateY(-50px) scaleX(1);
+   }
+ } 
+`
 
 const ListTemplate = () => {
     const [loading, setLoading] = useState(false)
@@ -26,10 +63,14 @@ const ListTemplate = () => {
     return(
         <div>
         {loading &&
-            <div className="loading">
-              <p className="display-6">Aguarde...</p>
-              <img src={Loading} alt="Aguarde..." width="50px"/>
-            </div>
+          <div className="d-flex justify-content-center">
+            <Loader>
+              <Ball></Ball>
+              <Ball></Ball>
+              <Ball></Ball>
+              <span>Aguarde</span>
+            </Loader>
+          </div>
         }
         
         {!loading && photos.length > 0 &&

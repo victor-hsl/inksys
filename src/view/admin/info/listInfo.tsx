@@ -4,6 +4,8 @@ import {Fragment} from 'react'
 import * as I from '../../../dao/Info'
 import {useState, useEffect} from 'react';
 import {Info} from '../../../model/Info';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { db } from '../../../util/FirebaseConnection';
 const ListInfo = () => {
     const [infos, setInfos] = useState<Info[]>([]);
     useEffect(() => {
@@ -16,6 +18,16 @@ const ListInfo = () => {
             console.log("Erro ao buscar infos: "+e);
         }        
     }, []);
+
+    const deleteInfo = async (id: string) => {
+        try{
+            const infoDoc = doc(db, "info", id);
+            await deleteDoc(infoDoc);
+            document.location.reload();
+        } catch (e) {
+            console.error("Failed! Error: ", e);
+        }
+    }
 
     return(
         <Fragment>
@@ -31,14 +43,14 @@ const ListInfo = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {infos.map((item, index) => (
-                        <tr>
-                            <th scope="row" className="col-lg-1 col-sm-1">{index+1}</th>
+                    {infos.map((item, key) => (
+                        <tr key={key}>
+                            <th scope="row" className="col-lg-1 col-sm-1">{key+1}</th>
                             <td >{item.title}</td>
                             <td >{item.description}</td>
                             <td>
                                 <button className="botaoEsq btn btn-primary"><i className="bi bi-pencil-square"></i></button>
-                                <button className="botaoDir btn btn-danger"><i className="bi bi-trash3"></i></button>
+                                <button className="botaoDir btn btn-danger" onClick={() => {deleteInfo(item.id)}}><i className="bi bi-trash3"></i></button>
                             </td>
                         </tr>
                     ))}

@@ -5,6 +5,5 @@ export type Post = {
     material: string;
     category: string;
     urlPhoto: string;
-    priority: number;
     date: Date;
 }

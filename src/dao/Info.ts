@@ -1,12 +1,13 @@
 import { Info } from "../model/Info";
-import { infoCollection } from "../util/FirebaseConnection";
-import { doc, getDocs, setDoc } from "@firebase/firestore";
+import { infoCollection, db } from "../util/FirebaseConnection";
+import { doc, getDocs, setDoc, deleteDoc } from "@firebase/firestore";
 
 export const getInfos = async () => {
     let list : Info[] = [];
     const infoDocs = await getDocs(infoCollection);
     infoDocs.docs.forEach((infoDoc) => {
         list.push({
+            id: infoDoc.id,
             title: infoDoc.data().title,
             description: infoDoc.data().description
         });

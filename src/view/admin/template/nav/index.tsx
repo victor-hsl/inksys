@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import './styles.css'
 const AdminNav = () => {
     return(
-        <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand><Link className="none" to='/admin'>InkSys</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

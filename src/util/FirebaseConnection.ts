@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getStorage} from 'firebase/storage';
-import {getFirestore, collection, CollectionReference, DocumentData} from 'firebase/firestore';
+import {getFirestore, collection, CollectionReference, DocumentData} from '@firebase/firestore';
 import {getAuth} from 'firebase/auth';
 import {Info} from '../model/Info'
 const firebaseConfig = {
@@ -25,4 +25,4 @@ const createCollection = <T = DocumentData> (collectionName: string) => {
   return collection(db, collectionName) as CollectionReference<T>
 }
 
-export const infoCollection = createCollection<Info>('info');
+export const infoCollection = createCollection('info');

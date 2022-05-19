@@ -26,3 +26,5 @@ const createCollection = <T = DocumentData> (collectionName: string) => {
 }
 
 export const infoCollection = createCollection('info');
+
+export const postCollection = createCollection('portfolio');

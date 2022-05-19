@@ -21,19 +21,18 @@ const NewPost = () => {
     
     const insertPhoto = async (file: File, id: string) => {
         if(['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
-            console.log("ID atual:" + id);
             let newFile = ref(storage, `Portfolio/${id}`);
             try{
                 let upload = await uploadBytes(newFile, file);
                 const url = await getDownloadURL(upload.ref);
-                setUrlPhoto(url);
-
                 displayMessage('Imagem enviada com sucesso!', 'success', true);
+                return url;
             } catch (e) {
                 displayMessage('Erro ao enviar imagem! Erro: '+e, 'error', true);
             }
        } else {
            displayMessage('Insira um formato valido de imagem!', 'erorr', true);
+           return '';
        }
     }
 
@@ -57,9 +56,10 @@ const NewPost = () => {
                 if(docRef.id !== ''){
                     setDocId(docRef.id);
                     if(file.size !== 0){
-                        insertPhoto(file, docRef.id);
+                        const url = await insertPhoto(file, docRef.id);
                         try{
-                            await updateDoc(doc(db, 'portfolio', docRef.id), {urlPhoto: urlPhoto});
+                            console.log("teste: "+url);
+                            await updateDoc(doc(db, 'portfolio', docRef.id), {urlPhoto: url});
                             displayMessage('Post adicionado com sucesso!', 'success', true)
                         } catch (e) {
                             displayMessage('Falha ao inserir o url da imagem! Erro: '+e, 'error', true);

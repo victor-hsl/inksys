@@ -10,7 +10,6 @@ const NewPost = () => {
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState('');
     const [end, setEnd] = useState('');
-    const [urlPhoto, setUrlPhoto] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [duration, setDuration] = useState('');
@@ -43,7 +42,7 @@ const NewPost = () => {
             const formData = new FormData(e.currentTarget);
             const file = formData.get('urlPhoto') as File;
             const payload = {category: category, 
-                            date: date, 
+                            date: (new Date(date)).toLocaleDateString('pt-BR', {timeZone: 'UTC'}), 
                             description: description, 
                             duration: duration,
                             material: material,
@@ -52,13 +51,12 @@ const NewPost = () => {
 
             try {
                 const docRef = await addDoc(collection(db, "portfolio"), payload);
-                displayMessage('Post adcionado! ID: '+docRef.id, 'success', true);
+                displayMessage('ID: '+docRef.id, 'success', true);
                 if(docRef.id !== ''){
                     setDocId(docRef.id);
                     if(file.size !== 0){
                         const url = await insertPhoto(file, docRef.id);
                         try{
-                            console.log("teste: "+url);
                             await updateDoc(doc(db, 'portfolio', docRef.id), {urlPhoto: url});
                             displayMessage('Post adicionado com sucesso!', 'success', true)
                         } catch (e) {

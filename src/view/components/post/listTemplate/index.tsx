@@ -3,8 +3,6 @@ import {Featurette} from './featurette'
 import { getPosts } from '../../../../dao/Post';
 import { Post } from '../../../../model/Post';
 import '../../../portfolio/hr.css'
-import {Photo} from '../../../../model/Photo'
-import * as Photos from '../../../../dao/Photo'
 import styled from 'styled-components'
 const Loader = styled.div`
   width: 110px;
@@ -81,13 +79,13 @@ const ListTemplate = () => {
             <Fragment>
               {index%2!==0 &&
                 <div>
-                  <Featurette content={item}  align=''/>
+                  <Featurette content={item}  align='' textAlign='text-end' key={item.id}/>
                   <hr className="featurette-divider"/>
                 </div>
               }
               {index%2===0 &&
                 <div>
-                  <Featurette content={item} align='order-md-2'/>
+                  <Featurette content={item} align='order-md-2' textAlign='text-start' key={item.id}/>
                   <hr className="featurette-divider"/>
                 </div>
               }  

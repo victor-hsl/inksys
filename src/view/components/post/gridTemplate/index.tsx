@@ -1,28 +1,27 @@
-import {useState, useEffect, Fragment } from 'react'
+import {useState, useEffect} from 'react'
+import {Post} from '../../../../model/Post'
+import { getPosts } from '../../../../dao/Post'
 import '../../../portfolio/hr.css'
-import {Photo} from '../../../../model/Photo'
-import * as Photos from '../../../../dao/Photo'
 import Card from './card'
 import * as C from './styles'
-import Loading from '../../../../assets/loading.gif'
 const GridTemplate = () => {
-    const [loading, setLoading] = useState(false);
-    const [photos, setPhotos] = useState<Photo[]>([]);
-    const [itensPerPage, setItensPerPage] = useState(9)
-    const [currentPage, setCurrentPage] = useState(0)
-    const startIndex = currentPage * itensPerPage
-    const pages = Math.ceil(photos.length / itensPerPage)
-    const endIndex = startIndex + itensPerPage
-    const currentItens = photos.slice(startIndex, endIndex)
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(false)
+  const [itensPerPage, setItensPerPage] = useState(4)
+  const [currentPage, setCurrentPage] = useState(0)
+  const startIndex = currentPage * itensPerPage
+  const pages = Math.ceil(posts.length / itensPerPage)
+  const endIndex = startIndex + itensPerPage
+  const currentItens = posts.slice(startIndex, endIndex)
 
-    useEffect(()=>{
-        const getPhotos = async () => {
-          setLoading(true);
-          setPhotos(await Photos.getPortfolio());
-          setLoading(false);
-        }
-        getPhotos();
-      }, []);
+  useEffect(()=>{
+      const getPortfolio = async () => {
+        setLoading(true)
+        setPosts(await getPosts())
+        setLoading(false)
+      }
+      getPortfolio();
+    }, []);
     return(
         <C.Container>
         {loading &&
@@ -35,10 +34,10 @@ const GridTemplate = () => {
             </C.Loader>
           </div>
         }
-        {!loading && photos.length > 0 &&
+        {!loading && posts.length > 0 &&
           <div className="row row-cols-1 row-cols-md-3 g-4 mb-4">
-            {currentItens.map((item, index) => (
-                    <Card url={item.url} name={item.name}/>
+            {currentItens.map((item, key) => (
+                    <Card content={item} key={key}/>
             ))}
           </div>
         }

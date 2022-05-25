@@ -10,7 +10,7 @@ const FormStep2 = () => {
 
     useEffect(() => {
         if(state.name === ''){
-            navigate('/step1');
+            navigate('/app/orcamento/step1');
             alert("Preencha o nome para prosseguir!");
         } else {
             dispatch({
@@ -22,7 +22,7 @@ const FormStep2 = () => {
 
     const handleNextStep = () => {
         if(state.name !== ''){
-            navigate('/step3');
+            navigate('/app/orcamento/step3');
         } else {
             alert('Preencha os dados');
         }

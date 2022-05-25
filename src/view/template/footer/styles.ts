@@ -5,7 +5,7 @@ export const Footer = styled.footer`
     border-radius: 5px 5px 0 0;
     display: flex;
     justify-content: center;
-    color: #c2c2c2;
+    color: #ccc;
     align-items: center;
     a{
         margin-right: 5px;

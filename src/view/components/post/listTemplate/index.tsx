@@ -79,13 +79,13 @@ const ListTemplate = () => {
             <Fragment>
               {index%2!==0 &&
                 <div>
-                  <Featurette content={item}  align='' textAlign='text-end' key={item.id}/>
+                  <Featurette content={item}  align='' textAlign='text-md-start' key={item.id}/>
                   <hr className="featurette-divider"/>
                 </div>
               }
               {index%2===0 &&
                 <div>
-                  <Featurette content={item} align='order-md-2' textAlign='text-start' key={item.id}/>
+                  <Featurette content={item} align='order-md-2' textAlign='text-md-end' key={item.id}/>
                   <hr className="featurette-divider"/>
                 </div>
               }  

@@ -19,7 +19,7 @@ const FormStep1 = () => {
 
     const handleNextStep = () => {
         if(state.name !== ''){
-            navigate('/step2');
+            navigate('/app/orcamento/step2');
         } else {
             alert('Preencha os dados');
         }

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {ReactComponent as ProfileIcon} from '../../../assets/svg/profile.svg'
 import {ReactComponent as BookIcon} from '../../../assets/svg/book.svg'
 import {ReactComponent as MailIcon} from '../../../assets/svg/mail.svg'
+
 type Props = {
     title: string;
     description: string;
@@ -13,7 +14,7 @@ type Props = {
 
 export const SidebarItem = ({title, description, icon, path, active} : Props) => {
     return (
-        <C.Container>
+        <C.Container className="">
             <Link to={path}>
                 <C.Info>
                     <C.Title>

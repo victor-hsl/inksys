@@ -16,13 +16,10 @@ type Props = {
 const App = ({children} : Props) => {  
 
   return(
-    <div className="App container">
-        <Header/>
-        <Menu/>
-        <FormProvider>
-          {children}
-        </FormProvider>
-        <Footer/>
+    <div className="App container-lg">
+      <Header/>
+      <Menu/>
+        {children}
     </div>
   );
 }

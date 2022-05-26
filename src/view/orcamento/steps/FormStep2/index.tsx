@@ -10,19 +10,20 @@ const FormStep2 = () => {
 
     useEffect(() => {
         if(state.name === ''){
-            navigate('/app/orcamento/step1');
+            navigate('/app/orcamento');
             alert("Preencha o nome para prosseguir!");
         } else {
             dispatch({
                 type: FormActions.setCurrentStep,
                 payload: 2
             })
+            alert("Nome:"+ state.name + "Birth:" +state.birth);
         }
     }, []);
 
     const handleNextStep = () => {
         if(state.name !== ''){
-            navigate('/app/orcamento/step3');
+            navigate('/app/orcamento/ideia');
         } else {
             alert('Preencha os dados');
         }
@@ -30,7 +31,7 @@ const FormStep2 = () => {
     }
     const setLevel = (level: number) => {
         dispatch({
-            type: FormActions.setLevel,
+            type: FormActions.setBirth,
             payload: level
         });
     }

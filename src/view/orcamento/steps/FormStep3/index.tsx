@@ -11,7 +11,7 @@ const FormStep3 = () => {
 
     useEffect(() => {
         if(state.name === ''){
-            navigate('/step1');
+            navigate('/app/orcamento');
             alert("Preencha o nome para prosseguir!");
         } else {
             dispatch({
@@ -21,8 +21,8 @@ const FormStep3 = () => {
         }
     }, []);
     const handleNextStep = () => {
-        if(state.email !== '' && state.github !== ''){
-            alert("Nome: "+state.name+"   Nivel: "+state.level+"   Email: "+state.email+"   GitHub: "+state.github);
+        if(state.email !== ''){
+            //alert("Nome: "+state.name+"   Nivel: "+state.level+"   Email: "+state.email+"   GitHub: "+state.github);
         } else {
             alert("Preencha os dados");
         }
@@ -35,7 +35,7 @@ const FormStep3 = () => {
     }
     const handleGitHubChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch({
-            type: FormActions.setGithub,
+            type: FormActions.setCelphone,
             payload: e.target.value
         });
     }
@@ -58,7 +58,7 @@ const FormStep3 = () => {
                     Qual seu GitHub?
                     <input
                         type="url"
-                        value={state.github}
+                        value={state.celphone}
                         onChange={handleGitHubChange}
                     />
                 </label>

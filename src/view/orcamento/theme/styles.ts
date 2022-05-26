@@ -11,7 +11,6 @@ export const Steps = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 100px;
     @media (min-width: 768px) {
         height: auto;
     }
@@ -19,7 +18,7 @@ export const Steps = styled.div`
 
 export const Sidebar = styled.div`
     display: flex;
-    border-bottom: 1px solid #c5cdd5;
+    border-bottom: 2px solid #c5cdd5;
     width: 100%;
     justify-content: space-around;
     flex-wrap: wrap;

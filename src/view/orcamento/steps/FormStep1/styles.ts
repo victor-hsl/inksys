@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
+    
     p{
         font-size: 13px;
         color: #B8B8D4;
@@ -18,7 +19,7 @@ export const Container = styled.div `
     }
 
     label{
-        font-size: 13px;
+        font-size: 14px;
         
         input{
         

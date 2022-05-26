@@ -16,9 +16,11 @@ type Props = {
 const Orcamento = ({children}: Props) => {
     
     return(
+      <Content>
         <FormProvider>
           {children}
         </FormProvider>
+      </Content>
     );
 };
 

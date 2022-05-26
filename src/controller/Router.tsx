@@ -29,8 +29,8 @@ export default function mainRoutes(){
             <Route path='/' element={<App children={<Portfolio/>}/>}/>
             <Route path='/app/portfolio' element={<App children={<Portfolio/>}/>}/>
             <Route path='/app/orcamento' element={<App children={<Orcamento children={<FormStep1/>}/>}/>}/>
-            <Route path='/app/orcamento/step2' element={<App children={<Orcamento children={<FormStep2/>}/>}/>}/>
-            <Route path='/app/orcamento/step3' element={<App children={<Orcamento children={<FormStep3/>}/>}/>}/>
+            <Route path='/app/orcamento/contato' element={<App children={<Orcamento children={<FormStep2/>}/>}/>}/>
+            <Route path='/app/orcamento/ideia' element={<App children={<Orcamento children={<FormStep3/>}/>}/>}/>
             <Route path='/app/info' element={<App children={<Info/>}/>}/>
         </Routes>
     )

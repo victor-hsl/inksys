@@ -1,11 +1,19 @@
 import { createContext, ReactNode, useContext, useReducer } from 'react';
+import {Photo} from '../model/Photo'
 
 type State = {
     currentStep: Number;
     name: string;
-    level: 0 | 1;
+    birth: string;
     email: string;
-    github: string;
+    celphone: string;
+    instagram: string;
+    bodyPart: string;
+    estimatedSize: string;
+    refs: Photo[];
+    description: string;
+    datePre: string;
+    hourPre: string;
 }
 
 type Action = {
@@ -25,9 +33,16 @@ type FormProviderProps = {
 const initialData: State = {
     currentStep: 0,
     name: '',
-    level: 0,
+    birth: '',
     email: '',
-    github: ''
+    celphone: '',
+    instagram: '',
+    bodyPart: '',
+    estimatedSize: '',
+    refs: [],
+    description: '',
+    datePre: '',
+    hourPre: ''
 }
 
 const FormContext = createContext<ContextType | undefined>(undefined);
@@ -35,9 +50,16 @@ const FormContext = createContext<ContextType | undefined>(undefined);
 export enum FormActions {
     setCurrentStep,
     setName,
-    setLevel,
+    setBirth,
     setEmail,
-    setGithub
+    setCelphone,
+    setInstagram,
+    setBodyPart,
+    setEstimatedSize,
+    setRefs,
+    setDescription,
+    setDatePre,
+    setHourPre
 }
 
 const formReducer = (state: State, action: Action) => {
@@ -46,12 +68,26 @@ const formReducer = (state: State, action: Action) => {
             return {...state, currentStep: action.payload};
         case FormActions.setName:
             return {...state, name: action.payload};
-        case FormActions.setLevel:
-            return {...state, level: action.payload};
+        case FormActions.setBirth:
+            return {...state, birth: action.payload};
         case FormActions.setEmail:
             return {...state, email: action.payload};
-        case FormActions.setGithub:
-            return {...state, github: action.payload};
+        case FormActions.setCelphone:
+            return {...state, celphone: action.payload};
+        case FormActions.setInstagram:
+            return {...state, instagram: action.payload};
+        case FormActions.setBodyPart:
+            return {...state, bodyPart: action.payload};
+        case FormActions.setEstimatedSize:
+            return {...state, estimatedSize: action.payload};
+        case FormActions.setRefs:
+            return {...state, refs: action.payload};
+        case FormActions.setDescription:
+            return {...state, description: action.payload};
+        case FormActions.setDatePre:
+            return {...state, datePre: action.payload};
+        case FormActions.setHourPre:
+            return {...state, hourPre: action.payload};        
         default:
             return state;
     }

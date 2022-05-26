@@ -6,7 +6,7 @@ type Props = {
 
 const AdminContent = ({children} : Props) => {
     return(
-        <C.Main className="container">
+        <C.Main className="container-lg">
             {children}
         </C.Main>
     )

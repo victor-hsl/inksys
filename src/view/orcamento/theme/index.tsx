@@ -38,7 +38,7 @@ export const Theme = ({children} : Props) => {
                             description="Quando gostaria"
                             icon="date"
                             path="/step3"
-                            active={state.currentStep === 3}
+                            active={state.currentStep === 4}
                         />
                     </C.Sidebar>
                     <C.Page>

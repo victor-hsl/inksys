@@ -2,13 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import * as C from './styles';
 import { useForm, FormActions } from '../../../../controller/FormContext';
 import {Theme} from '../../theme';
-import { ChangeEvent, useEffect } from 'react';
-
+import { ChangeEvent, useEffect, useState } from 'react';
+import { Alert } from 'react-bootstrap';
 
 const FormStep1 = () => {
     const navigate = useNavigate();
     const { state, dispatch } = useForm();
-
+    const [show, setShow] = useState(false);
     useEffect(() => {
         dispatch({
             type: FormActions.setCurrentStep,
@@ -17,13 +17,13 @@ const FormStep1 = () => {
     }, []);
 
     const handleNextStep = () => {
-        if(state.name !== ''){
+        if(state.name !== '' && state.birth !== ''){
             navigate('/app/orcamento/contato');
         } else {
-            alert('Preencha os dados');
-        }
-        
+            setShow(true);
+        }        
     }
+
     const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch({
             type: FormActions.setName,
@@ -64,6 +64,7 @@ const FormStep1 = () => {
                         id="age"
                         className="form-control"
                         type="date"
+                        placeholder='dd/mm/aaaa'
                         value={state.birth}
                         onChange={handleBirthChange}
                     />
@@ -71,6 +72,14 @@ const FormStep1 = () => {
                 <div className="d-flex flex-row-reverse flex-md-row">
                     <button className="btn btn-dark"onClick={handleNextStep}>Avançar <i className="bi bi-chevron-right"></i></button>
                 </div>
+                {show === true &&
+                    <div className="mt-2">
+                        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                            Preencha todos os campos!
+                        </Alert>
+                    </div>
+                }
+                
             </C.Container>
         </Theme>
     );

@@ -20,13 +20,5 @@ export const Container = styled.div `
 
     label{
         font-size: 14px;
-        
-        input{
-        
-        }
-    }
-
-    button{
-        
     }
 `;

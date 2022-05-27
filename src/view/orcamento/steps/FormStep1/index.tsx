@@ -4,7 +4,7 @@ import { useForm, FormActions } from '../../../../controller/FormContext';
 import {Theme} from '../../theme';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { Alert } from 'react-bootstrap';
-
+import InputMask from 'react-input-mask'
 const FormStep1 = () => {
     const navigate = useNavigate();
     const { state, dispatch } = useForm();
@@ -60,10 +60,11 @@ const FormStep1 = () => {
                     <label htmlFor="age" className="mb-2">
                         Nascimento
                     </label>
-                    <input
+                    <InputMask
+                        mask="99/99/9999"
                         id="age"
                         className="form-control"
-                        type="date"
+                        type="text"
                         placeholder='dd/mm/aaaa'
                         value={state.birth}
                         onChange={handleBirthChange}

@@ -2,32 +2,28 @@ import { useNavigate, Link } from 'react-router-dom';
 import * as C from './styles';
 import { useForm, FormActions } from '../../../../controller/FormContext';
 import {Theme} from '../../theme';
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 
 const FormStep3 = () => {
     const navigate = useNavigate();
     const { state, dispatch } = useForm();
-
+    const [firstName, setFirstName] = useState('');
+ 
     useEffect(() => {
-        if(state.name === ''){
-            navigate('/app/orcamento');
-            alert("Preencha o nome para prosseguir!");
+        if(state.email === '' || state.celphone === '' || state.instagram === ''){
+            navigate('/app/orcamento/contato');
+            alert("Preencha todos os campos para avançar!");
         } else {
             dispatch({
                 type: FormActions.setCurrentStep,
                 payload: 3
             })
+            const splited = state.name.split(" ");
+            setFirstName(splited[0]);
         }
     }, []);
-    const handleNextStep = () => {
-        if(state.email !== ''){
-            //alert("Nome: "+state.name+"   Nivel: "+state.level+"   Email: "+state.email+"   GitHub: "+state.github);
-        } else {
-            alert("Preencha os dados");
-        }
-    }
-    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleEmailChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         dispatch({
             type: FormActions.setEmail,
             payload: e.target.value
@@ -39,21 +35,33 @@ const FormStep3 = () => {
             payload: e.target.value
         });
     }
+    const handleNextStep = () => {
+        if(state.email !== ''){
+            //alert("Nome: "+state.name+"   Nivel: "+state.level+"   Email: "+state.email+"   GitHub: "+state.github);
+        } else {
+            alert("Preencha todos os dados!");
+        }
+    }
+
     return (
         <Theme>
             <C.Container>
-                <p>Passo {state.currentStep}/3</p>
-                <h1>Legal {state.name}, onde te achamos?</h1>
-                <p>Preencha com seus contatos</p>
+                <p>Passo {state.currentStep}/4</p>
+                <h1>Legal {firstName}, qual é sua ideia?</h1>
+                <p>Descreva sua ideia da forma mais detalhada possivel</p>
                 <hr/>
-                <label>
-                    Qual seu e-mail?
-                    <input
-                        type="email"
-                        value={state.email}
+                <div className="col-md-7 col-lg-4 mb-2">
+                    <label htmlFor="description" className="mb-2">
+                        Descrição
+                    </label>
+                    <textarea 
+                        id="description"
+                        className="form-control"
+                        value={state.description}
+                        rows={3}
                         onChange={handleEmailChange}
-                    />
-                </label>
+                    ></textarea>
+                </div>
                 <label>
                     Qual seu GitHub?
                     <input
@@ -62,8 +70,10 @@ const FormStep3 = () => {
                         onChange={handleGitHubChange}
                     />
                 </label>
-                <Link to="/step2" className="backButton">Voltar</Link>
-                <button onClick={handleNextStep}>Finalizar cadastro</button>
+                <div className="d-flex mt-4">
+                    <Link to="/app/orcamento/contato" className="btn btn-outline-dark ms-auto ms-md-0"><i className="bi bi-reply-fill"></i> Voltar</Link>
+                    <button className="btn btn-dark ms-1" onClick={handleNextStep}>Avançar <i className="bi bi-chevron-right"></i></button>
+                </div>
             </C.Container>
         </Theme>
     );

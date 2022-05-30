@@ -10,6 +10,5 @@ export const Map = styled.iframe`
 `;
 
 export const AcDiv = styled.div`
-    display: flex;
     justify-content: start;
 `

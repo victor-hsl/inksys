@@ -37,7 +37,7 @@ const Caroussel = () => {
       {!loading && photos.length > 0 &&
         <Carousel className="carrossel">
         {photos.map((photo, index) => (
-          <Carousel.Item>
+          <Carousel.Item key={index}>
             <img
               className="item"
               src={photo.url}

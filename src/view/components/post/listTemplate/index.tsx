@@ -77,13 +77,13 @@ const ListTemplate = () => {
         <div>
           {currentItens.map((item, index) => (
             <Fragment>
-              {index%2!==0 &&
+              {index%2===0 &&
                 <div>
                   <Featurette content={item}  align='' textAlign='text-md-start' key={item.id}/>
                   <hr className="featurette-divider"/>
                 </div>
               }
-              {index%2===0 &&
+              {index%2!==0 &&
                 <div>
                   <Featurette content={item} align='order-md-2' textAlign='text-md-end' key={item.id}/>
                   <hr className="featurette-divider"/>

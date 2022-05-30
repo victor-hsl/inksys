@@ -7,6 +7,7 @@ import * as I from '../../dao/Info'
 
 const Infos = () => {
     const [infos, setInfos] = useState<Info[]>([]);
+    const [description, setDescription] = useState(['']);
     useEffect(() => {
         const getAll = async () => {
             setInfos(await I.getInfos());
@@ -18,23 +19,33 @@ const Infos = () => {
         }        
     }, []);
 
+    const handleDescription = (line: String) => {
+        const splited = line.split("\n");
+        if(splited){
+            return splited;
+        } else {
+            return [];
+        }
+    }
+
 
     return(
         <Content>
             <C.Container>
                 <Accordion defaultActiveKey="">
                     {infos.map((item, key) => (
-                        <Accordion.Item eventKey={key.toString()}>
+                        <Accordion.Item eventKey={key.toString()} key={key}>
                             <Accordion.Header>{item.title}</Accordion.Header>
                             <Accordion.Body>
                                 <C.AcDiv>
-                                    {item.description}
+                                    {item.description.map((p, index) => (
+                                            <p key={index}>{p}</p>
+                                    ))}
                                 </C.AcDiv>
                             </Accordion.Body>
                         </Accordion.Item>    
                     ))}
                 </Accordion>
-                
             </C.Container>
         </Content>
     );

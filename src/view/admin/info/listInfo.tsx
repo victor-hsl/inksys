@@ -36,7 +36,7 @@ const ListInfo = () => {
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th scope="col" className="col-lg-1 col-sm-1">Prioridade</th>
+                        <th scope="col" className="col-lg-1 col-sm-1">Id</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Editar</th>
@@ -47,7 +47,7 @@ const ListInfo = () => {
                         <tr key={key}>
                             <th scope="row" className="col-lg-1 col-sm-1">{key+1}</th>
                             <td >{item.title}</td>
-                            <td >{item.description}</td>
+                            <td >{item.description[0]}{item.description.length > 1 ? '...' : ''}</td>
                             <td>
                                 <button className="botaoEsq btn btn-primary"><i className="bi bi-pencil-square"></i></button>
                                 <button className="botaoDir btn btn-danger" onClick={() => {deleteInfo(item.id)}}><i className="bi bi-trash3"></i></button>

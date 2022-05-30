@@ -16,13 +16,25 @@ const IncludeInfo = () => {
     
     const insert = async () => {
         if(title === '' || description === ''){
-            setErro('Preencha todos os campos!');
-            setEnd('error');
-            setShow(true);
+            if(title !== '' && description === ''){
+                setErro('Preencha a descrição!');
+                setEnd('error');
+                setShow(true);    
+            }
+            else if(title === '' && description !== ''){
+                setErro('Preencha o titulo!');
+                setEnd('error');
+                setShow(true);
+            } 
+            else {
+                setErro('Preencha todos os campos!');
+                setEnd('error');
+                setShow(true);
+            }
         } else {
             try{
                 await addDoc(infoRef, {
-                    description: description,
+                    description: description.split("\n"),
                     title: title
                 });
                 setEnd('success');
@@ -36,6 +48,14 @@ const IncludeInfo = () => {
             (document.getElementById("titulo") as HTMLInputElement).value='';
             (document.getElementById("descricao") as HTMLTextAreaElement).value='';
         }
+    }
+
+    const reset = () => {
+        setTitle('');
+        setDescription('');
+        setEnd('');
+        setErro('');
+        setShow(false);
     }
 
     return(
@@ -60,7 +80,7 @@ const IncludeInfo = () => {
                         </div>
                         <div className="form-group row mb-3">
                             <label htmlFor="descricao" className="col-sm-2 col-lg-1 col-form-label">Descrição</label>
-                            <div className="col-sm-10 col-lg-6">
+                            <div className="col-lg-11 col-sm-10">
                             <textarea
                                 className="form-control" 
                                 id="descricao" 
@@ -74,17 +94,17 @@ const IncludeInfo = () => {
                         <div className="form-group row mb-3">
                             <div className="col-sm-10">
                                 <button type="button" className="btn btn-primary me-2" onClick={insert}><i className="bi bi-sd-card"></i> Salvar</button>
-                                <button type="reset" className="btn btn-outline-secondary"><i className="bi bi-eraser"></i> Limpar</button>
+                                <button type="reset" className="btn btn-outline-secondary" onClick={reset}><i className="bi bi-eraser"></i> Limpar</button>
                             </div>
                         </div>
                     </form>
                     {end === 'success' && show === true &&
-                        <Alert variant="success" onClose={() => setShow(false)} dismissible>
+                        <Alert variant="success" onClose={() => reset} dismissible>
                             Informação incluida com sucesso!
                         </Alert>
                     }
                     {end === 'error' && show === true &&
-                        <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                        <Alert variant="danger" onClose={() => reset} dismissible>
                             {erro}
                         </Alert>
                     }

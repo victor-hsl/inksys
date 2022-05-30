@@ -13,10 +13,10 @@ const AdminNav = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link><Link className="none" to='/admin/info/includeinfo'>Informações</Link></Nav.Link>
-                        <Nav.Link><Link className="none" to='/admin/portfolio/newpost'>Portfolio</Link></Nav.Link>
-                        <Nav.Link><Link className="none" to='/admin/orcamento/edit'>Orçamento</Link></Nav.Link>
-                        <Nav.Link><Link className="none" to='/admin/banner/newitem'>Banner</Link></Nav.Link>
+                        <Link className="none me-md-3" to='/admin/info/includeinfo'>Informações</Link>
+                        <Link className="none me-md-3" to='/admin/portfolio/newpost'>Portfolio</Link>
+                        <Link className="none me-md-3" to='/admin/orcamento/edit'>Orçamento</Link>
+                        <Link className="none" to='/admin/banner/newitem'>Banner</Link>
                     </Nav>
                     <Nav>
                         <NavDropdown title="Tema" id="collasible-nav-dropdown">

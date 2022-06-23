@@ -20,10 +20,10 @@ const Navigation = ({scrollPosition} : Props) => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1">
-                        <Nav.Link href="home">Página inicial</Nav.Link>
-                        <Nav.Link href="info">Informações</Nav.Link>
-                        <Nav.Link href="portfolio">Portfólio</Nav.Link>
-                        <Nav.Link href="orcamento">Orçamento</Nav.Link>
+                        <Nav.Link href="#home">Página inicial</Nav.Link>
+                        <Nav.Link href="#info">Informações</Nav.Link>
+                        <Nav.Link href="#portfolio">Portfólio</Nav.Link>
+                        <Nav.Link href="#orcamento">Orçamento</Nav.Link>
                     </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

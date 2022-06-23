@@ -1,0 +1,35 @@
+.transparente {
+    background: transparent!important;
+}
+
+.navbar-light .navbar-brand{
+    font-size: 24px;
+}
+
+.navbar {
+    justify-content: flex-start;
+}
+
+.nav-link {
+    color: #000;
+    font-size: 22px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    font-size: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link.active{
+    color: #fff;
+    background: #000;
+    border-radius: 5px;
+}
+
+.navbar-toggler {
+    font-size: 22px;
+    border: 0;
+}
+
+.btn-close {
+    font-size: 22px;
+}

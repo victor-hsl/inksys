@@ -8,9 +8,9 @@ type Props = {
 }
 const Navigation = ({scrollPosition} : Props) => {
     return(
-        <Navbar bg="light" expand='md' className={`px-2 py-3 px-md-3 px-lg-5 ${scrollPosition < 100 ? 'transparente' : ''}`} sticky="top">
+        <Navbar bg="light" expand='md' className={`px-2 py-3 px-md-3 px-lg-5 ${scrollPosition < 100 ? 'transparente' : ''}`} sticky="top" variant={`${scrollPosition < 100 ? 'dark' : 'light'}`}>
                 <Navbar.Toggle aria-controls='offcanvasNavbar-expand-md' />
-                <Navbar.Brand href="#" className='ms-3 ms-md-0'>Navbar Offcanvas {scrollPosition}</Navbar.Brand>
+                <Navbar.Brand href="#" className='ms-3 ms-md-0'>Tattoo Studio</Navbar.Brand>
                 <Navbar.Offcanvas
                     id='offcanvasNavbar-expand-md'
                     aria-labelledby='offcanvasNavbarLabel-expand-md'

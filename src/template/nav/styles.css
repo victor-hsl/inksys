@@ -1,9 +1,11 @@
 .transparente {
     background: transparent!important;
+    color: #fff;
 }
 
-.navbar-light .navbar-brand{
+.navbar-brand{
     font-size: 24px;
+    font-family: 'Poppins', 'Lucida Sans', sans-serif;
 }
 
 .navbar {
@@ -13,6 +15,7 @@
 .nav-link {
     color: #000;
     font-size: 22px;
+    font-family: 'Poppins', 'Lucida Sans', sans-serif;
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -28,6 +31,7 @@
 .navbar-toggler {
     font-size: 22px;
     border: 0;
+    border-radius: 10%;
 }
 
 .btn-close {

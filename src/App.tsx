@@ -4,7 +4,10 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { App as Container } from './styles/global'
+import Header from './template/header';
 import Navigation from './template/nav';
+import Rotas from './Router'
+import {BrowserRouter as Router} from "react-router-dom"
 function App() {
   const [position, setPosition] = useState(0);
   const myRef = React.createRef<HTMLElement>();
@@ -26,39 +29,10 @@ function App() {
   return (
     <Container ref={myRef} onScroll={handleScroll}>
       <Navigation scrollPosition={position}/>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
-      <div> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias. Facilis nostrum debitis ratione soluta neque accusamus
-       tempora molestias deserunt provident illo numquam quos odio, nesciunt deleniti reprehenderit praesentium blanditiis.
-      </div>
+      <Header scrollPosition={position}/>
+      <Router>
+        <Rotas/>
+      </Router>
     </Container>
   );
 }

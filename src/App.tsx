@@ -10,6 +10,8 @@ import Rotas from './Router'
 import {BrowserRouter as Router} from "react-router-dom"
 function App() {
   const [position, setPosition] = useState(0);
+  const [active, setActive] = useState('home');
+  const href = window.location.href;
   const myRef = React.createRef<HTMLElement>();
   const handleScroll = () => {
     if(myRef.current?.scrollTop){
@@ -18,6 +20,9 @@ function App() {
   };
 
   useEffect(() => {
+    if(href === 'http://localhost:3000/'){
+      setActive('h');
+    }
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -25,10 +30,9 @@ function App() {
     };
   }, []);
 
-
   return (
     <Container ref={myRef} onScroll={handleScroll}>
-      <Navigation scrollPosition={position}/>
+      <Navigation scrollPosition={position} active={active}/>
       <Header scrollPosition={position}/>
       <Router>
         <Rotas/>

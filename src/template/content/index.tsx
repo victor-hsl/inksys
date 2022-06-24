@@ -8,6 +8,7 @@ const Main = styled.main`
     background-color: #efefef;
     padding: 20px;
     position: relative;
+    font-family: 'Poppins', 'Lucida Sans', sans-serif;
 `
 
 const Content = ({children} : Props) => {

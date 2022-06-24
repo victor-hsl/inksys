@@ -27,10 +27,10 @@ export const Title = styled.div<{scrollPosition: number;}>`
             transform: translateY(0);
         }
         100% {
-          transform: translateY(100px);
+          transform: translateY(22vh);
         }
     }
-    animation: ${props => props.scrollPosition > 100 ? 'slide-top 1.5s ease-in-out forwards' : 'inherit'};
+    animation: ${props => props.scrollPosition > 100 ? 'slide-top 2s ease-in-out forwards' : 'inherit'};
     background: hsla(0, 0%, 15%, 0.5);
     top: 0;
     left: 0;

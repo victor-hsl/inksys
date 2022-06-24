@@ -1,12 +1,12 @@
 import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Nav from 'react-bootstrap/Nav'
 import './styles.css'
 type Props = {
     scrollPosition: number;
+    active: string;
 }
-const Navigation = ({scrollPosition} : Props) => {
+const Navigation = ({scrollPosition, active} : Props) => {
     return(
         <Navbar bg="light" expand='md' className={`px-2 py-3 px-md-3 px-lg-5 ${scrollPosition < 100 ? 'transparente' : ''}`} sticky="top" variant={`${scrollPosition < 100 ? 'dark' : 'light'}`}>
                 <Navbar.Toggle aria-controls='offcanvasNavbar-expand-md' />
@@ -20,10 +20,10 @@ const Navigation = ({scrollPosition} : Props) => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1">
-                        <Nav.Link href="#home">Página inicial</Nav.Link>
-                        <Nav.Link href="#info">Informações</Nav.Link>
-                        <Nav.Link href="#portfolio">Portfólio</Nav.Link>
-                        <Nav.Link href="#orcamento">Orçamento</Nav.Link>
+                        <Nav.Link active={active === 'h' ? true : false} href="/">Página inicial</Nav.Link>
+                        <Nav.Link active={active === 'i' ? true : false} href="#info">Informações</Nav.Link>
+                        <Nav.Link active={active === 'p' ? true : false} href="#portfolio">Portfólio</Nav.Link>
+                        <Nav.Link active={active === 'o' ? true : false} href="#orcamento">Orçamento</Nav.Link>
                     </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

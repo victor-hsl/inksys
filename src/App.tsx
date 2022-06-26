@@ -6,6 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import { App as Container } from './styles/global'
 import Header from './template/header';
 import Navigation from './template/nav';
+import Footer from './template/footer';
 import Rotas from './Router'
 import {BrowserRouter as Router} from "react-router-dom"
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <Router>
         <Rotas/>
       </Router>
+      <Footer/>
     </Container>
   );
 }

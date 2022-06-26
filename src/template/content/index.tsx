@@ -6,14 +6,18 @@ type Props = {
 
 const Main = styled.main`
     background-color: #efefef;
-    padding: 20px;
     position: relative;
     font-family: 'Poppins', 'Lucida Sans', sans-serif;
+
+    .about {
+        text-align: justify;
+        font-size: 18px;
+    }
 `
 
 const Content = ({children} : Props) => {
     return(
-        <Main>
+        <Main className='px-2 py-4 px-md-4'>
             {children}
         </Main>
     )

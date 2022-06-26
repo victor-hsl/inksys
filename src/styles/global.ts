@@ -7,6 +7,9 @@ export const App = styled.main`
         box-sizing: border-box;
     }
 
+    body {
+        font-family: Poppins;
+    }
     height: 100vh;
     width: 100%;
     overflow-y: auto;

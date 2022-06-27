@@ -14,4 +14,12 @@ export const App = styled.main`
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+
+    .featurette > * {
+        flex-shrink: 0;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-top: var(--bs-gutter-y);
+    }
+}
 `;

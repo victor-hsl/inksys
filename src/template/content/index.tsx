@@ -17,7 +17,7 @@ const Main = styled.main`
 
 const Content = ({children} : Props) => {
     return(
-        <Main className='px-2 py-4 px-md-4'>
+        <Main className='px-2 py-4 px-md-4 d-flex justify-content-center'>
             {children}
         </Main>
     )

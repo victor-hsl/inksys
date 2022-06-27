@@ -20,9 +20,13 @@ const Button = styled.button`
         border: 0px;
     }
 `;
-const PortfolioButton = () => {
+
+type Props = {
+    onclick(): void;
+}
+const PortfolioButton = ({onclick} : Props) => {
     return(
-        <Button className="py-4 px-5 mb-4">
+        <Button className="py-4 px-5 mb-4" onClick={onclick}>
             Veja mais
         </Button>
     )

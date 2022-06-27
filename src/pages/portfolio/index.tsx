@@ -14,11 +14,13 @@ const Portfolio = () => {
     
     return(
         <Content>
-            <div className="container-xxl">
-                <Post content={item}  align='' textAlign='text-md-start' key={item.id}/>
-                <hr className="my-5"/>
-                <Post content={item}  align='order-md-2' textAlign='text-md-end' key={item.id}/>
-            </div>
+            <div className="d-flex justify-content-center">
+                <div className="container-xxl">
+                    <Post content={item}  align='' textAlign='text-md-start' key={item.id}/>
+                    <hr className="my-5"/>
+                    <Post content={item}  align='order-md-2' textAlign='text-md-end' key={item.id}/>
+                </div>
+            </div>            
         </Content>
     )
 }

@@ -31,8 +31,10 @@ const Info = () => {
     }, []);
     return(
         <Content>
-            <Container className="container-xxl mb-4">
-                <AccordionInfo items={items}/>
+            <Container className="mb-4">
+                <div className="container-xxl">
+                    <AccordionInfo items={items}/>
+                </div>
             </Container>
         </Content>
     )

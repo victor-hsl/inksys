@@ -2,16 +2,9 @@ import Content from "../../template/content";
 import DestaquesGrid from "../../components/destaquesGrid";
 import Blob from "../../components/blob";
 import PortfolioButton from "../../components/portfolioButton";
-import { useEffect } from "react";
-import { setHeader } from "../../hooks/useHeader";
-import { setActive } from "../../hooks/navActive";
 import { useNavigate } from "react-router";
 const Home = () => {
     const navigate = useNavigate();
-    useEffect(() => {
-        setHeader('Tattoo studio home page','Subtitle, services offered');
-        setActive(0);
-    }, []);
 
     const handlePBClick = () => {
         navigate('/portfolio');

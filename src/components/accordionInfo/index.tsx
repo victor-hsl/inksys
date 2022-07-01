@@ -1,13 +1,9 @@
 import { ReactNode, useState } from "react";
+import { Info } from "../../types/info";
 import styled from 'styled-components'
 
-type Item = {
-    title: string;
-    content: string[];
-}
-
 type AccordionProps = {
-    items: Item[];
+    items: Info[];
 }
 
 type ContentProps = {
@@ -25,7 +21,7 @@ const Accordion = styled.div`
 `
 const AccordionInner = styled.div`
     position: absolute;
-    padding: 1rem;
+    padding: 1rem!important;
     color: #212529;
 `
 const AccordionHeader = styled.button`
@@ -94,7 +90,7 @@ const AccordionInfo = ({ items } : AccordionProps) => {
                     <AccordionContent 
                         onClick={() => handleHeaderClicked(item.title)} 
                         itemName={item.title} 
-                        itemContent={item.content} 
+                        itemContent={item.description} 
                         isActive={isActive}
                     />    
                 )

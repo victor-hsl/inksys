@@ -1,12 +1,31 @@
 import { Container, Title } from './styles'
 import HeaderDivider from '../../components/headerDivider'
+import { useEffect, useState } from 'react';
 type Props = {
     scrollPosition: number;
-    title: string;
-    subtitle: string;
 }
 
-const Header = ({scrollPosition, title, subtitle}: Props) => {
+const Header = ({scrollPosition}: Props) => {
+    const [title, setTitle] = useState('');
+    const [subtitle, setSubtitle] = useState('');
+    useEffect(() => {
+        if(window.location.pathname === '/'){
+            setTitle('Home title');
+            setSubtitle('services offered');
+        }
+        else if(window.location.pathname === '/info'){
+            setTitle('Info title');
+            setSubtitle('all information about the studio');
+        }
+        else if(window.location.pathname === '/portfolio'){
+            setTitle('Portfolio title');
+            setSubtitle('recently done works');
+        }
+        else {
+            setTitle('Orçamento title');
+            setSubtitle('book your tattoo');
+        }
+    }, []);
     return(
         <Container>
             <Title scrollPosition={scrollPosition} >

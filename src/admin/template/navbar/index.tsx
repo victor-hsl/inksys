@@ -3,8 +3,13 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import { NavDropdown } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav'
-
+import { auth } from '../../../connections/FirebaseConnection';
+import { signOut, User, onAuthStateChanged } from "firebase/auth";
 const NavBar = () => {
+
+    const logout = async () => {
+        await signOut(auth);
+    }
     return(
         <Navbar bg="dark" expand='xl' className='px-2 py-3 px-md-3 px-lg-5' sticky="top" variant='dark'>
                 <Navbar.Toggle aria-controls='offcanvasNavbar-expand-xl' />
@@ -34,7 +39,7 @@ const NavBar = () => {
                         </NavDropdown>
                         <Link to='/admin/destaques' className={`nav-link ${window.location.pathname === '/admin/sobre' ? 'active' : ''}`}>Sobre</Link>
                         <hr/>
-                        <button className='btn btn-light ms-xl-2'>
+                        <button className='btn btn-light ms-xl-2' onClick={logout}>
                             <i className="bi bi-door-open"/>
                             Sair
                         </button>

@@ -1,28 +1,28 @@
 import styled from "styled-components";
 
 const Container = styled.footer`
-@keyframes wobble-ver-right {
-    0%,
-    100% {
-              transform: translateY(0) rotate(0);
-              transform-origin: 50% 50%;
+    @keyframes wobble-ver-right {
+        0%,
+        100% {
+                transform: translateY(0) rotate(0);
+                transform-origin: 50% 50%;
+        }
+        15% {
+                transform: translateY(-5px) rotate(6deg);
+        }
+        30% {
+                transform: translateY(5px) rotate(-6deg);
+        }
+        45% {
+                transform: translateY(-5px) rotate(3.6deg);
+        }
+        60% {
+                transform: translateY(5px) rotate(-2.4deg);
+        }
+        75% {
+                transform: translateY(-1px) rotate(1.2deg);
+        }
     }
-    15% {
-              transform: translateY(-5px) rotate(6deg);
-    }
-    30% {
-              transform: translateY(5px) rotate(-6deg);
-    }
-    45% {
-              transform: translateY(-5px) rotate(3.6deg);
-    }
-    60% {
-              transform: translateY(5px) rotate(-2.4deg);
-    }
-    75% {
-              transform: translateY(-1px) rotate(1.2deg);
-    }
-  }
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -46,6 +46,11 @@ const Container = styled.footer`
         i {
             animation: wobble-ver-right 0.8s ease-in-out both;
         }
+    }
+
+    @media (min-width: 1400px) {
+        height: 15vh;
+        padding: 0;
     }
 `;
 

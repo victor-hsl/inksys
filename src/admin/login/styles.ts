@@ -155,7 +155,7 @@ export const LoginForm = styled.form`
     background-color: rgba(255, 255, 255, .05);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(4px);
-    border-radius: 8px;
+    border-radius: 2rem;
     font-family: Poppins;
     display: flex;
     flex-direction: column;

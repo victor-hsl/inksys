@@ -25,7 +25,7 @@ const Login = () => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if(user){
-                setUser(user);
+                navigate('/admin/home')
             }
         })
     }, []);

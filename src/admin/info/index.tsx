@@ -49,6 +49,7 @@ const AdminInfo = () => {
                 });
                 setEnd('success');
                 setShow(true);
+                document.location.reload();
             } catch (e) {
                 console.error("Failed to add! ", e);
                 setEnd('error');

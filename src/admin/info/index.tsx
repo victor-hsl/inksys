@@ -4,6 +4,7 @@ import * as I from '../../data/Info'
 import { Alert } from 'react-bootstrap';
 import { db } from "../../connections/FirebaseConnection";
 import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
+import { FormButton, TextArea, TitleInput, ChangeArea } from './styles'
 
 const AdminInfo = () => {
     const [title, setTitle] = useState ('');
@@ -13,6 +14,8 @@ const AdminInfo = () => {
     const [show, setShow] = useState(false);
     const [erro, setErro] = useState('');
     const [infos, setInfos] = useState<Info[]>([]);
+    const [isUpdate, setIsUpdate] = useState(false);
+    const [docID, setDocId] = useState('');
     useEffect(() => {
         const getAll = async () => {
             setInfos(await I.getInfos());
@@ -42,26 +45,49 @@ const AdminInfo = () => {
                 setShow(true);
             }
         } else {
-            try{
-                await addDoc(infoRef, {
-                    description: description.split("\n"),
-                    title: title
-                });
-                setEnd('success');
-                setShow(true);
-                document.location.reload();
-            } catch (e) {
-                console.error("Failed to add! ", e);
-                setEnd('error');
-                setErro('Erro! Falha ao contatar o servidor');
-                setShow(true);
+            if(isUpdate){
+                try{
+                    await I.updateInfo({
+                        id: docID,
+                        title: title,
+                        description: description.split("\n")
+                    });
+                    setEnd('success');
+                    setShow(true);
+                    setIsUpdate(false);
+                    document.location.reload();
+                } catch (e) {
+                    console.error("Failed to add! ", e);
+                    setEnd('error');
+                    setErro('Erro! Falha ao contatar o servidor');
+                    setShow(true);
+                }
+                (document.getElementById("titulo") as HTMLInputElement).value='';
+                (document.getElementById("descricao") as HTMLTextAreaElement).value='';
+                setIsUpdate(false);
+            } else {
+                try{
+                    await addDoc(infoRef, {
+                        description: description.split("\n"),
+                        title: title
+                    });
+                    setEnd('success');
+                    setShow(true);
+                    document.location.reload();
+                } catch (e) {
+                    console.error("Failed to add! ", e);
+                    setEnd('error');
+                    setErro('Erro! Falha ao contatar o servidor');
+                    setShow(true);
+                }
+                (document.getElementById("titulo") as HTMLInputElement).value='';
+                (document.getElementById("descricao") as HTMLTextAreaElement).value='';
             }
-            (document.getElementById("titulo") as HTMLInputElement).value='';
-            (document.getElementById("descricao") as HTMLTextAreaElement).value='';
         }
     }
 
     const reset = () => {
+        setIsUpdate(false);
         setTitle('');
         setDescription('');
         setEnd('');
@@ -79,19 +105,28 @@ const AdminInfo = () => {
         }
     }
 
+    const update = async (payload: Info) => {
+        reset();
+        setDocId(payload.id);
+        setTitle(payload.title);
+        setDescription(payload.description.join());
+        setIsUpdate(true);
+        window.scrollTo(0, 0);
+    }
 
     return(
         <>
             <div className="title">
-                Incluir Informação
+                {isUpdate ? 'Atualizar' : 'Incluir'} Informação
             </div>
             <div className="d-flex justify-content-center">
                 <form className="col-12 col-md-9 col-lg-7 col-xl-5 mt-2">
                     <div className="form-group row mb-3">
                         <label htmlFor="titulo" className="col-sm-2 col-form-label text-md-end">Titulo</label>
                         <div className="col-sm-10">
-                        <input 
+                        <TitleInput
                             type="text" 
+                            value={title}
                             className="form-control" 
                             id="titulo" 
                             placeholder="Nome da informação"
@@ -103,20 +138,25 @@ const AdminInfo = () => {
                     <div className="form-group row mb-3">
                         <label htmlFor="descricao" className="col-sm-2  col-form-label text-md-end">Descrição</label>
                         <div className="col-sm-10">
-                        <textarea
+                        <TextArea
                             className="form-control" 
                             id="descricao" 
+                            value={description}
                             rows={5}
                             placeholder="Insira o texto aqui..."
                             onChange={(e) => {setDescription(e.target.value)}}
                             required
-                        ></textarea>
+                        ></TextArea>
                         </div>
                     </div>
                     <div className="form-group row mb-3">
                         <div className="d-flex justify-content-center">
-                            <button type="button" className="btn btn-primary me-2" onClick={insert}><i className="bi bi-sd-card"></i> Salvar</button>
-                            <button type="reset" className="btn btn-outline-secondary" onClick={reset}><i className="bi bi-eraser"></i> Limpar</button>
+                            <FormButton type="button" onClick={insert}>
+                                    <i className="bi bi-sd-card"></i> {isUpdate ? 'Atualizar' : 'Salvar'}
+                            </FormButton>
+                            <FormButton type="reset" onClick={reset}>
+                                <i className="bi bi-eraser"></i> Limpar
+                            </FormButton>
                         </div>
                     </div>
                 </form>
@@ -155,10 +195,10 @@ const AdminInfo = () => {
                                 <th scope="row" className="col-lg-1 col-sm-1">{key+1}</th>
                                 <td >{item.title}</td>
                                 <td >{item.description[0]}{item.description.length > 1 ? '...' : ''}</td>
-                                <td>
-                                    <button className="botaoEsq btn btn-primary"><i className="bi bi-pencil-square"></i></button>
-                                    <button className="botaoDir btn btn-danger" onClick={() => {deleteInfo(item.id)}}><i className="bi bi-trash3"></i></button>
-                                </td>
+                                <ChangeArea>
+                                    <button className="vibrate btn btn-outline-dark my-2" onClick={() => {update(item)}}><i className="bi bi-pencil-square"></i></button>
+                                    <button className="vibrate btn btn-outline-dark mt-1" onClick={() => {deleteInfo(item.id)}}><i className="bi bi-trash3"></i></button>
+                                </ChangeArea>
                             </tr>
                         ))}
                     </tbody>

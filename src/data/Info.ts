@@ -1,6 +1,6 @@
 import { Info } from "../types/info";
 import { infoCollection, db } from "../connections/FirebaseConnection";
-import { doc, getDocs, setDoc, deleteDoc } from "@firebase/firestore";
+import { doc, getDocs, setDoc, updateDoc } from "@firebase/firestore";
 
 export const getInfos = async () => {
     let list : Info[] = [];
@@ -24,5 +24,17 @@ export const insertInfo = async (novo: Info) => {
         })
     } catch (e) {
         console.log("Erro ao inserir: "+ e);
+    }
+}
+
+export const updateInfo = async (payload: Info) => {
+    const docRef = doc(infoCollection, payload.id);
+
+    if(docRef){
+        try {
+            await updateDoc(docRef, payload);
+        } catch (e) {
+            console.log("Erro ao atualizar:"+ e);
+        }
     }
 }

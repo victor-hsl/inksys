@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-
+    font-family: Poppins!important;
     .title {
         font-size: 2.75rem;
         font-family: Poppins;

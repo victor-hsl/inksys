@@ -11,6 +11,10 @@ import AdminHome from './admin/home'
 import Login from './admin/login'
 import Main from './admin/main'
 import AdminInfo from './admin/info'
+import HomeHeader from './admin/headers/home'
+import InfoHeader from './admin/headers/info'
+import PortfolioHeader from './admin/headers/portfolio'
+import OrcamentoHeader from './admin/headers/orcamento'
 
 export default function mainRoutes(){
     return(
@@ -24,6 +28,10 @@ export default function mainRoutes(){
             <Route path='/admin' element={<Main children={<AdminHome/>}/>}/>
             <Route path='/admin/home' element={<Main children={<AdminHome/>}/>}/>
             <Route path='/admin/infos' element={<Main children={<AdminInfo/>}/>}/>
+            <Route path='/admin/headers/home' element={<Main children={<HomeHeader/>}/>}/>
+            <Route path='/admin/headers/info' element={<Main children={<InfoHeader/>}/>}/>
+            <Route path='/admin/headers/portfolio' element={<Main children={<PortfolioHeader/>}/>}/>
+            <Route path='/admin/headers/orcamento' element={<Main children={<OrcamentoHeader/>}/>}/>
             <Route path='/login' element={<Login/>}/>
         </Routes>
     )

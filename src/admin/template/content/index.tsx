@@ -11,6 +11,10 @@ const Container = styled.div`
         text-align: center;
     }
 
+    label {
+        font-size: 1.5rem;
+        margin: auto 0;
+    }
 `
 type Props = {
     children: ReactNode;

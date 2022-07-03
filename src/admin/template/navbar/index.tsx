@@ -23,19 +23,43 @@ const NavBar = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1">
-                        <Link to='/admin/home' className={`nav-link ${window.location.pathname === '/admin/home' ? 'active' : window.location.pathname === '/admin' ? 'active' : ''}`}>Home</Link>
-                        <Link to='/admin/orcamentos' className={`nav-link ${window.location.pathname === '/admin/orcamentos' ? 'active' : ''}`}>Orçamentos</Link>
-                        <Link to='/admin/infos' className={`nav-link ${window.location.pathname === '/admin/infos' ? 'active' : ''}`}>Informações</Link>
-                        <Link to='/admin/portfolio' className={`nav-link ${window.location.pathname === '/admin/portfolio' ? 'active' : ''}`}>Portfólio</Link>
+                        <Link 
+                            to='/admin/home' 
+                            className={`nav-link ${window.location.pathname === '/admin/home' ? 'active' : window.location.pathname === '/admin' ? 'active' : ''}`}
+                        >
+                            {window.location.pathname === '/admin' || window.location.pathname === '/admin/home' ? (<i className='bi bi-house me-2'/>) : ''}
+                            Home
+                        </Link>
+                        <Link 
+                            to='/admin/orcamentos' 
+                            className={`nav-link ${window.location.pathname === '/admin/orcamentos' ? 'active' : ''}`}
+                        >
+                            {window.location.pathname === '/admin/orcamentos' ? (<i className='bi bi-calendar-plus me-2'/>) : ''}
+                            Orçamentos
+                        </Link>
+                        <Link 
+                            to='/admin/infos' 
+                            className={`nav-link ${window.location.pathname === '/admin/infos' ? 'active' : ''}`}
+                        >
+                            {window.location.pathname === '/admin/infos' ? (<i className='bi bi-info-circle me-2'/>) : ''}
+                            Informações
+                        </Link>
+                        <Link 
+                            to='/admin/portfolio' 
+                            className={`nav-link ${window.location.pathname === '/admin/portfolio' ? 'active' : ''}`}
+                        >
+                            {window.location.pathname === '/admin/portfolio' ? (<i className='bi bi-vector-pen me-2'/>) : ''}
+                            Portfólio
+                        </Link>
                         <Link to='/admin/destaques' className={`nav-link ${window.location.pathname === '/admin/destaques' ? 'active' : ''}`}>Destaques</Link>
                         <NavDropdown
                             title="Cabeçalhos"
                             id='offcanvasNavbarDropdown-expand-xl'
                         >
-                            <Link to='/admin/headers/home' className={`dropdown-item ${window.location.pathname === '/admin/headers/home' ? 'active' : ''}`}>Página Inicial</Link>
-                            <Link to='/admin/headers/info' className={`dropdown-item ${window.location.pathname === '/admin/headers/info' ? 'active' : ''}`}>Informações</Link>
-                            <Link to='/admin/headers/portfolio' className={`dropdown-item ${window.location.pathname === '/admin/headers/portfolio' ? 'active' : ''}`}>Portfólio</Link>
-                            <Link to='/admin/headers/orcamento' className={`dropdown-item ${window.location.pathname === '/admin/headers/orcamento' ? 'active' : ''}`}>Orçamento</Link>
+                            <Link to='/admin/headers/home' onClick={window.location.reload} className={`dropdown-item ${window.location.pathname === '/admin/headers/home' ? 'active' : ''}`}>Página Inicial</Link>
+                            <Link to='/admin/headers/info' onClick={window.location.reload} className={`dropdown-item ${window.location.pathname === '/admin/headers/info' ? 'active' : ''}`}>Informações</Link>
+                            <Link to='/admin/headers/portfolio' onClick={window.location.reload} className={`dropdown-item ${window.location.pathname === '/admin/headers/portfolio' ? 'active' : ''}`}>Portfólio</Link>
+                            <Link to='/admin/headers/orcamento' onClick={window.location.reload} className={`dropdown-item ${window.location.pathname === '/admin/headers/orcamento' ? 'active' : ''}`}>Orçamento</Link>
                         </NavDropdown>
                         <Link to='/admin/destaques' className={`nav-link ${window.location.pathname === '/admin/sobre' ? 'active' : ''}`}>Sobre</Link>
                         <hr/>

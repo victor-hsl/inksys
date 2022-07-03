@@ -7,6 +7,8 @@ export const Container = styled.header
     height: 80vh;
     overflow: hidden;
     background: url(${Background});
+    background-position: center;
+    background-size: cover;
     img {
         z-index: -1;
         margin-top: -300px;
@@ -31,7 +33,7 @@ export const Title = styled.div<{scrollPosition: number;}>`
         }
     }
     animation: ${props => props.scrollPosition > 100 ? 'slide-top 2.5s ease-in-out forwards' : 'inherit'};
-    background: hsla(0, 0%, 15%, 0.5);
+    background: hsla(0, 0%, 9%, 0.5);
     top: 0;
     left: 0;
     padding: 40px;

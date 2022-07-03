@@ -8,7 +8,7 @@ export const FormButton = styled.button`
     border: 0;
     padding: 1rem 2rem;
 
-    :active {;
+    :active {
         background: linear-gradient(145deg, #e6e6e6, #ffffff);
         box-shadow:  10px 10px 34px #d9d9d9,
         -10px -10px 34px #ffffff;

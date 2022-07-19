@@ -12,6 +12,7 @@ import Login from './admin/login'
 import Main from './admin/main'
 import AdminInfo from './admin/info'
 import Header from './admin/headers'
+import About from './admin/about'
 
 export default function mainRoutes(){
     return(
@@ -29,6 +30,7 @@ export default function mainRoutes(){
             <Route path='/admin/headers/info' element={<Main children={<Header id="info"/>}/>}/>
             <Route path='/admin/headers/portfolio' element={<Main children={<Header id="portfolio"/>}/>}/>
             <Route path='/admin/headers/orcamento' element={<Main children={<Header id="orcamento"/>}/>}/>
+            <Route path='/admin/sobre' element={<Main children={<About/>}/>}/>
             <Route path='/login' element={<Login/>}/>
         </Routes>
     )

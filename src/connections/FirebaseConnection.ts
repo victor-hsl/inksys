@@ -29,3 +29,5 @@ export const infoCollection = createCollection('info');
 export const postCollection = createCollection('portfolio');
 
 export const headersCollection = createCollection('headers');
+
+export const homePageCollection = createCollection('home');

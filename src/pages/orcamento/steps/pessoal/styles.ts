@@ -21,4 +21,20 @@ export const Container = styled.div `
     label{
         font-size: 14px;
     }
+
+    .form-control {
+        border-radius: 2rem;
+        border: 0;
+        padding: .9rem 1.3rem;
+        background: #efefef;
+        box-shadow: inset 20px 20px 29px #cbcbcb,
+            inset -20px -20px 29px #ffffff;
+    }
+
+    .btn {
+        padding: 1rem;
+        border-radius: 1.9rem;
+        box-shadow:  14px 14px 28px #cbcbcb,
+             -14px -14px 28px #ffffff;
+    }
 `;

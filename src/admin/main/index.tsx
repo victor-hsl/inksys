@@ -18,7 +18,7 @@ const Main = ({children} : Props) => {
             if(user){
                 setUser(user);
             } else {
-                navigate('/login');
+                console.log('nao logado')
             }
         })
     }, []);

@@ -61,7 +61,7 @@ const NavBar = () => {
                             <Link to='/admin/headers/portfolio' onClick={window.location.reload} className={`dropdown-item ${window.location.pathname === '/admin/headers/portfolio' ? 'active' : ''}`}>Portfólio</Link>
                             <Link to='/admin/headers/orcamento' onClick={window.location.reload} className={`dropdown-item ${window.location.pathname === '/admin/headers/orcamento' ? 'active' : ''}`}>Orçamento</Link>
                         </NavDropdown>
-                        <Link to='/admin/destaques' className={`nav-link ${window.location.pathname === '/admin/sobre' ? 'active' : ''}`}>Sobre</Link>
+                        <Link to='/admin/sobre' className={`nav-link ${window.location.pathname === '/admin/sobre' ? 'active' : ''}`}>Sobre</Link>
                         <hr/>
                         <button className='btn btn-light ms-xl-2' onClick={logout}>
                             <i className="bi bi-door-open"/>

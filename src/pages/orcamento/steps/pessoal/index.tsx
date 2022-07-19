@@ -45,7 +45,7 @@ const FormStep1 = () => {
                 <p>Preencha o campo abaixo com seu nome completo e data de nascimento.</p>
                 <hr/>
                 <div className="col-md-8 col-lg-6 mb-2">
-                    <label htmlFor="name" className="mb-2">
+                    <label htmlFor="name" className="mb-2 ms-4">
                         Nome completo
                     </label>
                     <input
@@ -57,7 +57,7 @@ const FormStep1 = () => {
                     />
                 </div>
                 <div className="col-md-8 col-lg-6 mb-4">
-                    <label htmlFor="age" className="mb-2">
+                    <label htmlFor="age" className="mb-2 ms-4">
                         Nascimento
                     </label>
                     <InputMask
